@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package View;
 
 import java.awt.BorderLayout;
@@ -15,6 +11,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.border.EmptyBorder;
+import javax.swing.plaf.basic.BasicScrollBarUI;
 
 /**
  *
@@ -33,13 +31,16 @@ public class SanPhamView extends JPanel {
     }
     public void giaoDienSanPham(){
         setBackground(Color.decode("#6c757d")); 
-        
         setLayout(new GridBagLayout());
+        
         JPanel functionBar = new JPanel();
         functionBar.setBackground(Color.YELLOW);
         functionBar.setLayout(new GridBagLayout());
+        functionBar.setBorder(BorderFactory.createEmptyBorder(5, 5, 10, 5)); //Để cái functionBar nó cách viền 5px ở các cạnh, riêng bottom thì cách 10px
         JPanel content = new JPanel();
-        content.setBackground(Color.GRAY);
+        content.setBackground(Color.WHITE);
+        content.setLayout(new GridBagLayout());
+        content.setBorder(BorderFactory.createEmptyBorder(5, 5, 10, 5)); //Để cái content nó cách viền 5px ở các cạnh, riêng canh top thì cách 10px
         
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.weightx = 1.0;
@@ -55,10 +56,11 @@ public class SanPhamView extends JPanel {
         //Tạo 2 panel trái, phải chứa các chức năng
         JPanel leftFunction = new JPanel();
         leftFunction.setBackground(Color.RED);
-        leftFunction.setBorder(BorderFactory.createTitledBorder("CHỨC NĂNG"));
+        leftFunction.setBorder(BorderFactory.createTitledBorder("Chức năng"));
+//        leftFunction.setBorder(BorderFactory.createTi);
         JPanel rightFunction = new JPanel();
         rightFunction.setBackground(Color.BLUE);
-        rightFunction.setBorder(BorderFactory.createTitledBorder("TÌM KIẾM"));
+        rightFunction.setBorder(BorderFactory.createTitledBorder("Tìm kiếm"));
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.weightx = 0.4;
@@ -71,64 +73,56 @@ public class SanPhamView extends JPanel {
         gbc.fill = GridBagConstraints.BOTH;
         functionBar.add(rightFunction, gbc);
         
-        String[][] data = {
-                { "Kundan Kumar Jha", "4031", "CSE" },
-                { "Anand Jha", "6014", "IT" }
-        };
-        String[] columnNames = {"Name", "Roll Number", "Department"};
         //Tạo bảng
+        String[][] data = {
+                { "AC1", "Laptop Acer Nitro 5", "20", "25.000.000đ"},
+                { "AS1", "Laotop Asus TUF", "15", "23.000.000"}
+        };  //Tạo dữ liệu cho các ô
+        String[] columnNames = {"Mã máy", "Tên máy", "Số lượng", "Giá"};   //Tạo các cột
         JTable table = new JTable(data, columnNames);
-        table.setPreferredSize(new Dimension(1400, 850));
+        table.setPreferredSize(new Dimension(1400,850));
         JScrollPane sp = new JScrollPane(table);
+        // Tùy chỉnh giao diện của thanh cuộn dọc
+        JScrollBar verticalScrollBar = sp.getVerticalScrollBar();
+        verticalScrollBar.setUI(new BasicScrollBarUI() {
+            @Override
+            protected void configureScrollBarColors() {
+                this.thumbColor = Color.decode("#BED5DA"); // Màu của thanh cuộn
+                this.trackColor = Color.decode("#f8f9fa"); // Màu của vùng chứa thanh cuộn
+            }
+        });
+        
         gbc.weightx = 1.0;
         gbc.weighty = 1.0;
         gbc.fill = GridBagConstraints.BOTH;
         content.add(sp, gbc);
         
-    }
-    
-}
-/*
-setLayout(new BorderLayout());
-        JPanel functionBar = new JPanel();  //Panel chứa các chức năng
-        functionBar.setBackground(Color.YELLOW);
-        functionBar.setLayout(new GridBagLayout());
-        functionBar.setPreferredSize(new Dimension(getWidth(), 120));
+        leftFunction.setLayout(new GridBagLayout());
+        rightFunction.setLayout(new GridBagLayout());
         
-        add(functionBar, BorderLayout.NORTH);
+        JPanel panelThem = new JPanel();
+        JPanel panelXoa = new JPanel();
+        JPanel panelSua = new JPanel();
+        JPanel panelXuatExcel = new JPanel();
+        panelThem.setBackground(Color.GRAY);
+        panelXoa.setBackground(Color.CYAN);
+        panelSua.setBackground(Color.ORANGE);
+        panelXuatExcel.setBackground(Color.DARK_GRAY);
+ 
         
-        
-        JPanel leftFunction = new JPanel();
-        leftFunction.setBorder(BorderFactory.createTitledBorder("Chức năng"));
-        JPanel rightFunction = new JPanel();
-        rightFunction.setBorder(BorderFactory.createTitledBorder("Tìm kiếm"));
-        GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 0;
-        gbc.weightx = 0.4;  //Định tỷ lể widen theo chiều ngang - chiếm 0.4 phần functionBar panel
-        gbc.weighty = 1.0;  //Định tỷ lệ widen theo chiều dọc hết cỡ cái functionBar panel
-        gbc.fill = GridBagConstraints.BOTH;   //Thực hiện widen theo cả 2 chiều
-        functionBar.add(leftFunction, gbc);
-        gbc.gridx = 1;
-        gbc.weightx = 0.6;
-        gbc.weighty = 1.0;
+        gbc.weightx = 0.3;
+        gbc.weighty = 0.3;
         gbc.fill = GridBagConstraints.BOTH;
-        functionBar.add(rightFunction, gbc);
-        JButton b1 = new JButton("EAST");
-        add(b1, BorderLayout.EAST);
-        JPanel content = new JPanel();
-        content.setBackground(Color.GRAY);
-        add(content, BorderLayout.CENTER);
-        content.setPreferredSize(new Dimension(1400-(700/3), 800));
-        
-        String[][] data = {
-                { "Kundan Kumar Jha", "4031", "CSE" },
-                { "Anand Jha", "6014", "IT" }
-        };
-        String[] columnNames = {"Name", "Roll Number", "Department"};
-        //Tạo bảng
-        JTable table = new JTable(data, columnNames);
-        table.setPreferredSize(new Dimension(1400, 850));
-        JScrollPane sp = new JScrollPane(table);
-        content.add(sp);
-*/
+        leftFunction.add(panelThem, gbc);
+        gbc.gridx = 1;
+        leftFunction.add(panelXoa, gbc);
+        gbc.gridx = 2;
+        leftFunction.add(panelSua, gbc);
+        gbc.gridx = 3;
+        leftFunction.add(panelXuatExcel, gbc);
+    }
+    
+    
+}
