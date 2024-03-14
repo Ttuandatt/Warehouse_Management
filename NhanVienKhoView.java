@@ -188,7 +188,7 @@ public class NhanVienKhoView extends JFrame {
         thanhDieuHuong.setPreferredSize(new Dimension(navigationWidth, f.getHeight())); // Đặt kích thước cho thanhDieuHuong
         noiDung.setPreferredSize(new Dimension(contentWidth, f.getHeight())); // Đặt kích thước cho noiDung
         
-        // Định danh cho trang chủ
+        // Định danh cho các trang
         final String trangchu = "TRANG_CHU";
         final String sanpham = "SAN_PHAM";
         final String nhacungcap = "NHA_CUNG_CAP";
@@ -199,7 +199,8 @@ public class NhanVienKhoView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Tạo một đối tượng của lớp SanPham
-                TrangChu trangChuObj = new TrangChu();
+                TrangChuView trangChuObj = new TrangChuView();
+                trangChuObj.giaoDienTrangChu();
                 // Thêm giao diện sản phẩm vào noiDung
                 noiDung.add(trangChuObj, trangchu);
                 // Chuyển đến giao diện trang chủ khi nút được nhấp
@@ -218,11 +219,12 @@ public class NhanVienKhoView extends JFrame {
                 cardLayout.show(noiDung, sanpham);
             }
         });
+        // Thiết lập action listener cho buttonNhaCungCap
         buttonNhaCungCap.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-                NhaCungCap nhaCungCapObj = new NhaCungCap();
-                nhaCungCapObj.setBackground(Color.red);
+                NhaCungCapView nhaCungCapObj = new NhaCungCapView();
+                nhaCungCapObj.giaoDienNCC();
                 noiDung.add(nhaCungCapObj, nhacungcap);
                 CardLayout cardLayout = (CardLayout)noiDung.getLayout();
                 cardLayout.show(noiDung, nhacungcap);
@@ -255,20 +257,3 @@ public class NhanVienKhoView extends JFrame {
         f.setVisible(true);
     }
 }
-/*
-        buttonDangXuat.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e){
-                int choice = JOptionPane.showConfirmDialog(f, "Đăng xuất?", "Đăng xuất", JOptionPane.OK_CANCEL_OPTION);
-                if(choice==JOptionPane.OK_OPTION){  //Nếu user click ok, thì đóng frame ứng dụng, mở cửa sổ login
-                    f.dispose();
-                    LoginView loginFormObj = new LoginView();
-                    loginFormFrame = LoginView.giaoDienLogin();
-                    noiDung.add(loginFormFrame, dangxuat);
-                    CardLayout cardLayout = (CardLayout)noiDung.getLayout();
-                    cardLayout.show(noiDung, dangxuat);
-                }
-                
-            }
-        });
-*/
