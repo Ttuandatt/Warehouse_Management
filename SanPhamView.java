@@ -21,13 +21,6 @@ import javax.swing.plaf.basic.BasicScrollBarUI;
  * @author ACER
  */
 public class SanPhamView extends JPanel {
-    private int maHangHoa;
-    private String tenHangHoa;
-    private String donViTinh;
-    private double gia;
-    private String nhaCungCap;
-    private String xuatXu;
-    
     //Constructor
     public void giaoDienSanPham(){
         setLayout(new FlowLayout());
@@ -38,10 +31,10 @@ public class SanPhamView extends JPanel {
         functionBar.setBackground(Color.YELLOW);
         functionBar.setLayout(new GridBagLayout());
         functionBar.setBorder(BorderFactory.createEmptyBorder(5, 5, 10, 5)); //Để cái functionBar nó cách viền 5px ở các cạnh, riêng bottom thì cách 10px
-        JPanel content = new JPanel();
-        content.setBackground(Color.WHITE);
-        content.setLayout(new GridBagLayout());
-        content.setBorder(BorderFactory.createEmptyBorder(5, 5, 10, 5)); //Để cái content nó cách viền 5px ở các cạnh, riêng canh top thì cách 10px
+        JPanel content1 = new JPanel();
+        content1.setBackground(Color.WHITE);
+        content1.setLayout(new GridBagLayout());
+        content1.setBorder(BorderFactory.createEmptyBorder(5, 5, 10, 5)); //Để cái content nó cách viền 5px ở các cạnh, riêng canh top thì cách 10px
         
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.weightx = 1.0;
@@ -52,7 +45,7 @@ public class SanPhamView extends JPanel {
         add(functionBar, gbc);
         gbc.weighty = 0.8;
         gbc.gridy = 1;
-        add(content, gbc);
+        add(content1, gbc);
         
         //Tạo 2 panel trái, phải chứa các chức năng
         JPanel leftFunction = new JPanel();
@@ -73,14 +66,12 @@ public class SanPhamView extends JPanel {
         gbc.fill = GridBagConstraints.BOTH;
         functionBar.add(rightFunction, gbc);
         
-        //Tạo bảng, phần này sau khi có database sẽ lấy data từ đó
         String[][] data = {
-                { "AC1", "Laptop Acer Nitro 5", "20", "25.000.000đ"},
-                { "AS1", "Laotop Asus TUF", "15", "23.000.000"}
-        };  //Tạo dữ liệu cho các ô
-        String[] columnNames = {"Mã máy", "Tên máy", "Số lượng", "Giá"};   //Tạo các cột
+            {"AC1","Laptop Acer Nitro 5","20", "25.00.000đ", "Intel i3 1115G4", "4GB", "256GB"},
+            {"AS1","Laptop Asus TUF 15","23","23.000.000đ", "Intel i5 12500H", "8GB", "256GB"}
+        };
+        String columnNames[] = {"Mã máy","Tên máy", "Số lượng", "Giá", "Bộ xử lý", "RAM", "Bộ nhớ"};
         JTable table = new JTable(data, columnNames);
-        table.setPreferredSize(new Dimension(1400,850));
         JScrollPane sp = new JScrollPane(table);
         // Tùy chỉnh giao diện của thanh cuộn dọc
         JScrollBar verticalScrollBar = sp.getVerticalScrollBar();
@@ -95,7 +86,7 @@ public class SanPhamView extends JPanel {
         gbc.weightx = 1.0;
         gbc.weighty = 1.0;
         gbc.fill = GridBagConstraints.BOTH;
-        content.add(sp, gbc);
+        content1.add(sp, gbc);
         
         leftFunction.setLayout(null);
         rightFunction.setLayout(new GridBagLayout());
@@ -163,10 +154,13 @@ public class SanPhamView extends JPanel {
         //Tạo và thêm các panel chứa các chức năng tìm kiếm
         JPanel panelCombobox = new JPanel();
         JPanel panelSearchbox = new JPanel();
-        JPanel panelSeachButton = new JPanel();
+        JPanel panelLamMoi = new JPanel();
         panelCombobox.setBackground(Color.LIGHT_GRAY);
-        panelSearchbox.setBackground(Color.MAGENTA);
-        panelSeachButton.setBackground(Color.WHITE);
+        panelCombobox.setLayout(null);
+        panelSearchbox.setBackground(Color.MAGENTA);    
+        panelSearchbox.setLayout(null);
+        panelLamMoi.setBackground(Color.WHITE);
+        panelLamMoi.setLayout(null);
         
         gbc = new GridBagConstraints(); // Resetting GridBagConstraints
 
@@ -183,9 +177,22 @@ public class SanPhamView extends JPanel {
         gbc.weightx = 0.2;
         gbc.weighty = 0.2;
         gbc.gridx = 2;
-        rightFunction.add(panelSeachButton, gbc);
+        rightFunction.add(panelLamMoi, gbc);
         
         
+        //Tạo combobox
+        String combo[] = {"Tất cả", "Giá tăng dần", "Giá giảm dần"};
+        JComboBox cb = new JComboBox(combo);
+        cb.setBounds(10,20,120,30);
+        panelCombobox.add(cb);
+        //Tạo textfield để nhập tìm kiếm
+        JTextField tf = new JTextField();
+        tf.setBounds(10,20,257,30);
+        panelSearchbox.add(tf);
+        //Tạo nút Làm mới để reset tìm kiếm
+        JButton buttonLamMoi = new JButton("Làm mới");
+        buttonLamMoi.setBounds(10,20,100,30);
+        panelLamMoi.add(buttonLamMoi);
     }
     
 }
