@@ -4,9 +4,9 @@
  */
 package View;
 
-import Lop.NhaCungCap;
+//import Lop.NhaCungCap;
 import View.SanPhamView;
-import Lop.TrangChu;
+//import Lop.TrangChu;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -34,7 +34,7 @@ public class QuanLyKhoView extends JFrame {
     public QuanLyKhoView(){
     }
     public void khoiTaoGiaoDien(){
-        JFrame f = new JFrame("Nhan vien kho");
+        JFrame f = new JFrame("Quan ly kho");
         f.setSize(1400, 850);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -103,11 +103,13 @@ public class QuanLyKhoView extends JFrame {
         //Tạo mainPanel dùng GridBagLayout để chỉnh được cách bố trí các thành phần nút chuyển hướng
         JPanel panelCenter = new JPanel(new GridLayout(15,1));
         panelCenter.setBackground(Color.decode("#56c2f5"));
+        
         //Nút TRANG CHỦ
         JButton buttonTrangChu = new JButton("TRANG CHỦ");
         buttonTrangChu.setPreferredSize(new Dimension(250,45));
         buttonTrangChu.setBackground(Color.decode("#56c2f5"));
         buttonTrangChu.setForeground(Color.WHITE);
+        buttonTrangChu.setBorderPainted(false);     // Ẩn viền của buttonTrangChu
         // Thêm chức năng thay đổi màu khi hover vào nút "TRANG CHỦ"
         buttonTrangChu.addMouseListener(new MouseAdapter() {
             @Override
@@ -121,11 +123,13 @@ public class QuanLyKhoView extends JFrame {
             }
         });
         panelCenter.add(buttonTrangChu);
+        
         //NÚT SẢN PHẨM
         JButton buttonSanPham = new JButton("SẢN PHẨM");
         buttonSanPham.setPreferredSize(new Dimension(250,45));
         buttonSanPham.setBackground(Color.decode("#56c2f5"));
         buttonSanPham.setForeground(Color.WHITE);
+        buttonSanPham.setBorderPainted(false);         // Ẩn viền của buttonSanPham
         buttonSanPham.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e){
@@ -137,10 +141,13 @@ public class QuanLyKhoView extends JFrame {
             }
         });
         panelCenter.add(buttonSanPham);
+        
         //NÚT NHÀ CUNG CẤP
         JButton buttonNhaCungCap = new JButton("NHÀ CUNG CẤP");
         buttonNhaCungCap.setPreferredSize(new Dimension(250,45));
         buttonNhaCungCap.setBackground(Color.decode("#56c2f5"));
+        buttonNhaCungCap.setForeground(Color.WHITE);
+        buttonNhaCungCap.setBorderPainted(false);       // Ẩn viền của buttonNhaCungCap
         buttonNhaCungCap.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e){
@@ -152,26 +159,46 @@ public class QuanLyKhoView extends JFrame {
             }
         });
         panelCenter.add(buttonNhaCungCap);
+        
         //NÚT NHẬP HÀNG
         JButton buttonNhapHang = new JButton("NHẬP HÀNG");
         buttonNhapHang.setPreferredSize(new Dimension(250,45));
+        buttonNhapHang.setBackground(Color.decode("#56c2f5"));
+        buttonNhapHang.setForeground(Color.WHITE);
+        buttonNhapHang.setBorderPainted(false);         // Ẩn viền của buttonNhapHang
         panelCenter.add(buttonNhapHang);
+        
         //NÚT PHIẾU NHẬP
         JButton buttonPhieuNhap = new JButton("PHIẾU NHẬP");
         buttonPhieuNhap.setPreferredSize(new Dimension(250,45));
+        buttonPhieuNhap.setBackground(Color.decode("#56c2f5"));
+        buttonPhieuNhap.setForeground(Color.WHITE);
+        buttonPhieuNhap.setBorderPainted(false);        // Ẩn viền của buttonPhieuNhap
         panelCenter.add(buttonPhieuNhap);
         //NÚT XUẤT HÀNG
         JButton buttonXuatHang = new JButton("XUẤT HÀNG");
         buttonXuatHang.setPreferredSize(new Dimension(250,45));
+        buttonXuatHang.setBackground(Color.decode("#56c2f5"));
+        buttonXuatHang.setForeground(Color.WHITE);
+        // Ẩn viền của buttonXuatHang
+        buttonXuatHang.setBorderPainted(false);
         panelCenter.add(buttonXuatHang);
-        //Tạo panelPhieuXuat để chứa nút PHIẾU XUẤT
+        
+        //Nút PHIẾU XUẤT
         JButton buttonPhieuXuat = new JButton("PHIẾU XUẤT");
         buttonPhieuXuat.setPreferredSize(new Dimension(250,45));
+        buttonPhieuXuat.setBackground(Color.decode("#56c2f5"));
+        buttonPhieuXuat.setForeground(Color.WHITE);
+        buttonPhieuXuat.setBorderPainted(false);        // Ẩn viền của buttonPhieuXuat
         panelCenter.add(buttonPhieuXuat);
         thanhDieuHuong.add(panelCenter, BorderLayout.CENTER);
-        //Tạo panelDangXuat ở SOUTH để chưa nút ĐĂNG XUẤT
+        
+        //Nút ĐĂNG XUẤT
         JButton buttonDangXuat = new JButton("ĐĂNG XUẤT");
         buttonDangXuat.setPreferredSize(new Dimension(250,45));
+        buttonDangXuat.setBackground(Color.decode("#56c2f5"));
+        buttonDangXuat.setForeground(Color.WHITE);
+        buttonDangXuat.setBorderPainted(false);         // Ẩn viền của buttonDangXuat
         thanhDieuHuong.add(buttonDangXuat, BorderLayout.SOUTH);
         mainPanel.add(thanhDieuHuong, BorderLayout.WEST);
         //######################################################################
@@ -200,7 +227,8 @@ public class QuanLyKhoView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Tạo một đối tượng của lớp SanPham
-                TrangChu trangChuObj = new TrangChu();
+                TrangChuView trangChuObj = new TrangChuView();
+                trangChuObj.giaoDienTrangChu();
                 // Thêm giao diện sản phẩm vào noiDung
                 noiDung.add(trangChuObj, trangchu);
                 // Chuyển đến giao diện trang chủ khi nút được nhấp
@@ -219,11 +247,12 @@ public class QuanLyKhoView extends JFrame {
                 cardLayout.show(noiDung, sanpham);
             }
         });
+        // Thiết lập action listener cho buttonNhaCungCap
         buttonNhaCungCap.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-                NhaCungCap nhaCungCapObj = new NhaCungCap();
-                nhaCungCapObj.setBackground(Color.red);
+                NhaCungCapView nhaCungCapObj = new NhaCungCapView();
+                nhaCungCapObj.giaoDienNCC();
                 noiDung.add(nhaCungCapObj, nhacungcap);
                 CardLayout cardLayout = (CardLayout)noiDung.getLayout();
                 cardLayout.show(noiDung, nhacungcap);
@@ -256,4 +285,5 @@ public class QuanLyKhoView extends JFrame {
         f.setVisible(true);
     }
 }
+
 
