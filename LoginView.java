@@ -88,16 +88,6 @@ public class LoginView {
     public void closeLoginFrame() {
         JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(panelBottom); // Lấy JFrame cha của panelBottom
         frame.dispose(); // Đóng frame đăng nhập
-}   
-    public static void main(String[] args){
-        LoginView view = new LoginView();
-        view.giaoDienLogin();
-    }
-}
-/*
-Chinh kich co anh cho fit voi doi tuong
-ImageIcon icon = new ImageIcon("C:\\Users\\ACER\\Dropbox\\My PC (LAPTOP-UGP9QJUT)\\Documents\\NetBeansProjects\\BT_JAVA_LOANDO\\src\\main\\java\\com\\mycompany\\icon1.png");
-Image img = icon.getImage().getScaledInstance(96, 30, java.awt.Image.SCALE_SMOOTH);
-ImageIcon scaledIcon = new ImageIcon(img);
-*/
+    }   
 
+}
