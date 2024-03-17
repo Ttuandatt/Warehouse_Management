@@ -33,6 +33,7 @@ import javax.swing.JPanel;
 
 public class QuanLyKhoView extends JFrame {
     public QuanLyKhoView(){
+        khoiTaoGiaoDien();
     }
     public void khoiTaoGiaoDien(){
         JFrame f = new JFrame("Quan ly kho");
