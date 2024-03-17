@@ -14,7 +14,8 @@ public class LoginController {
     public void checkAndLogin(LoginModel user){
     if((user.getUsername().equals("admin")) && user.getPassword().equals("123")){
         QuanLyKhoView qlk = new QuanLyKhoView();
-        qlk.khoiTaoGiaoDien(); // Hiển thị frame quanLyKho
+//        qlk.khoiTaoGiaoDien(); // Hiển thị frame quanLyKho, trường hợp constructor của QuanLyKhoView không có gọi sẵn hàm khoiTaoGiaoDien
+//còn hiện tại constructor của QuanLyKhoView gọi sẵn r nên khỏi  gọi
         // Đóng frame đăng nhập
         view.closeLoginFrame();
     }
@@ -30,4 +31,3 @@ public class LoginController {
 }
     
 }
-
