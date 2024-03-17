@@ -19,6 +19,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -111,7 +112,7 @@ public class QuanLyKhoView extends JFrame {
         buttonTrangChu.setForeground(Color.WHITE);
         buttonTrangChu.setBorderPainted(false);     // Ẩn viền của buttonTrangChu
         // Thêm chức năng thay đổi màu khi hover vào nút "TRANG CHỦ"
-        buttonTrangChu.addMouseListener(new MouseAdapter() {
+        buttonTrangChu.addMouseListener(new MouseAdapter() {    //Dùng MouseListener sẽ báo lỗi
             @Override
             public void mouseEntered(MouseEvent e) {
                 buttonTrangChu.setBackground(Color.decode("#357ded")); // Đổi màu nền khi di chuột vào
@@ -166,6 +167,16 @@ public class QuanLyKhoView extends JFrame {
         buttonNhapHang.setBackground(Color.decode("#56c2f5"));
         buttonNhapHang.setForeground(Color.WHITE);
         buttonNhapHang.setBorderPainted(false);         // Ẩn viền của buttonNhapHang
+        buttonNhapHang.addMouseListener(new MouseAdapter(){
+            @Override
+            public void mouseEntered(MouseEvent e){
+                buttonNhapHang.setBackground(Color.decode("#357ded"));
+            }
+            @Override
+            public void mouseExited(MouseEvent e){
+                buttonNhapHang.setBackground(Color.decode("#56c2f5"));
+            }
+        });
         panelCenter.add(buttonNhapHang);
         
         //NÚT PHIẾU NHẬP
@@ -174,7 +185,18 @@ public class QuanLyKhoView extends JFrame {
         buttonPhieuNhap.setBackground(Color.decode("#56c2f5"));
         buttonPhieuNhap.setForeground(Color.WHITE);
         buttonPhieuNhap.setBorderPainted(false);        // Ẩn viền của buttonPhieuNhap
+        buttonPhieuNhap.addMouseListener(new MouseAdapter(){
+            @Override
+            public void mouseEntered(MouseEvent e){
+                buttonPhieuNhap.setBackground(Color.decode("#357ded"));
+            }
+            @Override
+            public void mouseExited(MouseEvent e){
+                buttonPhieuNhap.setBackground(Color.decode("#56c2f5"));
+            }
+        });
         panelCenter.add(buttonPhieuNhap);
+        
         //NÚT XUẤT HÀNG
         JButton buttonXuatHang = new JButton("XUẤT HÀNG");
         buttonXuatHang.setPreferredSize(new Dimension(250,45));
@@ -182,6 +204,16 @@ public class QuanLyKhoView extends JFrame {
         buttonXuatHang.setForeground(Color.WHITE);
         // Ẩn viền của buttonXuatHang
         buttonXuatHang.setBorderPainted(false);
+        buttonXuatHang.addMouseListener(new MouseAdapter(){
+            @Override
+            public void mouseEntered(MouseEvent e){
+                buttonXuatHang.setBackground(Color.decode("#357ded"));
+            }
+            @Override
+            public void mouseExited(MouseEvent e){
+                buttonXuatHang.setBackground(Color.decode("#56c2f5"));
+            }
+        });
         panelCenter.add(buttonXuatHang);
         
         //Nút PHIẾU XUẤT
@@ -190,6 +222,16 @@ public class QuanLyKhoView extends JFrame {
         buttonPhieuXuat.setBackground(Color.decode("#56c2f5"));
         buttonPhieuXuat.setForeground(Color.WHITE);
         buttonPhieuXuat.setBorderPainted(false);        // Ẩn viền của buttonPhieuXuat
+        buttonPhieuXuat.addMouseListener(new MouseAdapter(){
+            @Override
+            public void mouseEntered(MouseEvent e){
+                buttonPhieuXuat.setBackground(Color.decode("#357ded"));
+            }
+            @Override
+            public void mouseExited(MouseEvent e){
+                buttonPhieuXuat.setBackground(Color.decode("#56c2f5"));
+            }
+        });
         panelCenter.add(buttonPhieuXuat);
         thanhDieuHuong.add(panelCenter, BorderLayout.CENTER);
         
@@ -285,5 +327,3 @@ public class QuanLyKhoView extends JFrame {
         f.setVisible(true);
     }
 }
-
-
