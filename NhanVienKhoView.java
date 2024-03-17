@@ -4,9 +4,9 @@
  */
 package View;
 
-import Lop.NhaCungCap;
+import View.TrangChuView;
 import View.SanPhamView;
-import Lop.TrangChu;
+//import Lop.TrangChu;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -154,6 +154,7 @@ public class NhanVienKhoView extends JFrame {
         //NÚT NHẬP HÀNG
         JButton buttonNhapHang = new JButton("NHẬP HÀNG");
         buttonNhapHang.setPreferredSize(new Dimension(250,45));
+        
         panelCenter.add(buttonNhapHang);
         //NÚT PHIẾU NHẬP
         JButton buttonPhieuNhap = new JButton("PHIẾU NHẬP");
