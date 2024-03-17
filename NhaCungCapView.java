@@ -202,23 +202,4 @@ public class NhaCungCapView extends JPanel {
         panelLamMoi.add(buttonLamMoi);
     }
 }
-/*
-        //Tạo bảng, phần này sau khi có database sẽ lấy data từ đó
-        String[][] data = {
-                { "AP", "AN PHÁT", "0123456789", "a, phường b, quận c, TP.HCM"},
-                { "GVN", "GEAR VN", "09887654321", "m, phường n, quận o, TP.HCM"}
-        };  //Tạo dữ liệu cho các ô
-        String[] columnNames = {"Mã NCC", "Tên NCC", "Số điện thoại", "Địa chỉ"};   //Tạo các cột
-        JTable table = new JTable(data, columnNames);
-        table.setPreferredSize(new Dimension(1400,850));
-        JScrollPane sp = new JScrollPane(table);
-        // Tùy chỉnh giao diện của thanh cuộn dọc
-        JScrollBar verticalScrollBar = sp.getVerticalScrollBar();
-        verticalScrollBar.setUI(new BasicScrollBarUI() {
-            @Override
-            protected void configureScrollBarColors() {
-                this.thumbColor = Color.decode("#BED5DA"); // Màu của thanh cuộn
-                this.trackColor = Color.decode("#f8f9fa"); // Màu của vùng chứa thanh cuộn
-            }
-        });
-*/
+2
