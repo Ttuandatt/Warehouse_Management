@@ -1,8 +1,6 @@
--- Active: 1694393309740@@127.0.0.1@3306@warehouse
-create database warehouse;
-
-use warehouse;
-
+create database quanlykhohang;
+# drop database quanlykhohang;
+use quanlykhohang;	
 create table taikhoan (
     taikhoan varchar(30), matkhau varchar(30), loai int, manv varchar(255), Foreign Key (manv) REFERENCES nhanvien (manv)
 );
@@ -20,7 +18,7 @@ create table nhacungcap (
 );
 
 create table sanpham (
-    masp varchar(255), tensp varchar(255), soluong int, giaban int, boxuly varchar(255), bonho varchar(255), ram int,gpu int,kichthuoc int, nhacungcap varchar(255), primary key (masp), Foreign Key (nhacungcap) REFERENCES nhacungcap (mancc)
+    masp varchar(255), tensp varchar(255), soluong int, giaban int, boxuly varchar(255), bonho varchar(255), ram int,gpu varchar(255),kichthuoc double, nhacungcap varchar(255), primary key (masp)
 );
 
 insert into
@@ -124,16 +122,16 @@ insert into
     );
 
 INSERT INTO sanpham (masp, tensp, soluong, giaban, boxuly, bonho, ram, gpu, kichthuoc, nhacungcap) VALUES 
-('SP021', 'Laptop Dell Inspiron 15', 50, 18000000, 'Intel Core i5', '256GB', '8GB', 'GTX 2050', '15.6', 'NC2134'),
-('SP022', 'Laptop HP Pavilion 14', 40, 15000000, 'Intel Core i5', '512GB', '8GB', 'GTX 2025', '14', 'NC2135'),
-('SP023', 'Laptop ASUS VivoBook S15', 60, 17000000, 'Intel Core i7', '512GB', '16GB', 'RTX 2025', '15.6', 'NC2136'),
-('SP024', 'Laptop Lenovo IdeaPad Flex 5', 35, 22000000, 'AMD Ryzen 7', '512GB', '16GB', 'RTX 3060', '15.6', 'NC2137'),
-('SP025', 'PC Acer Aspire XC', 25, 12000000, 'Intel Core i5', '256GB', '8GB', 'Iris XE', 'NA', 'NC2134'),
-('SP026', 'PC Dell OptiPlex 3080', 55, 28000000, 'Intel Core i7', '512GB', '32GB', 'RTX 3060', 'NA', 'NC2135'),
-('SP027', 'PC HP EliteDesk 800 G6', 30, 32000000, 'Intel Core i9', '512GB', '32GB', 'RTX 3060', 'NA', 'NC2136'),
-('SP028', 'PC Lenovo ThinkCentre M720', 20, 20000000, 'Intel Core i5', '256GB', '8GB', 'GTX 3050', 'NA', 'NC2137'),
-('SP029', 'Laptop MSI Modern 15', 45, 19000000, 'Intel Core i7', '512GB', '16GB', 'Iris XE', '15.6', 'NC2134'),
-('SP030', 'Laptop Acer Aspire 5', 40, 16000000, 'AMD Ryzen 5', '512GB', '8GB', 'GTX 2025', '15.6', 'NC2135');
+('SP021', 'Laptop Dell Inspiron 15', 50, 18000000, 'Intel Core i5', '256GB', '8', 'GTX 2050', '15.6', 'NC2134'),
+('SP022', 'Laptop HP Pavilion 14', 40, 15000000, 'Intel Core i5', '512GB', '8', 'GTX 2025', '14', 'NC2135'),
+('SP023', 'Laptop ASUS VivoBook S15', 60, 17000000, 'Intel Core i7', '512GB', '16', 'RTX 2025', '15.6', 'NC2136'),
+('SP024', 'Laptop Lenovo IdeaPad Flex 5', 35, 22000000, 'AMD Ryzen 7', '512GB', '16', 'RTX 3060', '15.6', 'NC2137'),
+('SP025', 'PC Acer Aspire XC', 25, 12000000, 'Intel Core i5', '256GB', '8', 'Iris XE', '14', 'NC2134'),
+('SP026', 'PC Dell OptiPlex 3080', 55, 28000000, 'Intel Core i7', '512GB', '32', 'RTX 3060', '15.6', 'NC2135'),
+('SP027', 'PC HP EliteDesk 800 G6', 30, 32000000, 'Intel Core i9', '512GB', '32', 'RTX 3060', '15.6', 'NC2136'),
+('SP028', 'PC Lenovo ThinkCentre M720', 20, 20000000, 'Intel Core i5', '256GB', '8', 'GTX 3050', '14', 'NC2137'),
+('SP029', 'Laptop MSI Modern 15', 45, 19000000, 'Intel Core i7', '512GB', '16', 'Iris XE', '15.6', 'NC2134'),
+('SP030', 'Laptop Acer Aspire 5', 40, 16000000, 'AMD Ryzen 5', '512GB', '8', 'GTX 2025', '15.6', 'NC2135');
 
 create table phieuxuat (
     maxuat varchar(255), makh varchar(255), tongtien Double, PRIMARY key (maxuat), Foreign Key (makh) REFERENCES khachhang (makh)
@@ -144,7 +142,7 @@ create table ctphieuxuat (
 );
 
 create table phieunhap (
-    manhap varchar(255), mancc varchar(255), tongtien int,
+    manhap varchar(255), mancc varchar(255), tongtien int
 )
 /* 
 insert into
@@ -166,3 +164,8 @@ mact varchar(255), loai varchar(255), tongtien varchar(255), primary key (mact)
 create table ctchungtu (
 mact varchar(255), masp varchar(255), soluong int, Foreign Key (mact) REFERENCES chungtu (mact), Foreign Key (masp) REFERENCES sanpham (masp)
 ); */
+
+###################### QUERY ########################
+SELECT * FROM nhanvien;
+SELECT * FROM sanpham;
+SELECT * FROM quanlykhohang.sanpham;
