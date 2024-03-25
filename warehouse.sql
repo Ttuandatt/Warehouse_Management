@@ -122,16 +122,32 @@ insert into
     );
 
 INSERT INTO sanpham (masp, tensp, soluong, giaban, boxuly, bonho, ram, gpu, kichthuoc, nhacungcap) VALUES 
-('SP021', 'Laptop Dell Inspiron 15', 50, 18000000, 'Intel Core i5', '256GB', '8', 'GTX 2050', '15.6', 'NC2134'),
-('SP022', 'Laptop HP Pavilion 14', 40, 15000000, 'Intel Core i5', '512GB', '8', 'GTX 2025', '14', 'NC2135'),
-('SP023', 'Laptop ASUS VivoBook S15', 60, 17000000, 'Intel Core i7', '512GB', '16', 'RTX 2025', '15.6', 'NC2136'),
-('SP024', 'Laptop Lenovo IdeaPad Flex 5', 35, 22000000, 'AMD Ryzen 7', '512GB', '16', 'RTX 3060', '15.6', 'NC2137'),
-('SP025', 'PC Acer Aspire XC', 25, 12000000, 'Intel Core i5', '256GB', '8', 'Iris XE', '14', 'NC2134'),
-('SP026', 'PC Dell OptiPlex 3080', 55, 28000000, 'Intel Core i7', '512GB', '32', 'RTX 3060', '15.6', 'NC2135'),
-('SP027', 'PC HP EliteDesk 800 G6', 30, 32000000, 'Intel Core i9', '512GB', '32', 'RTX 3060', '15.6', 'NC2136'),
-('SP028', 'PC Lenovo ThinkCentre M720', 20, 20000000, 'Intel Core i5', '256GB', '8', 'GTX 3050', '14', 'NC2137'),
-('SP029', 'Laptop MSI Modern 15', 45, 19000000, 'Intel Core i7', '512GB', '16', 'Iris XE', '15.6', 'NC2134'),
-('SP030', 'Laptop Acer Aspire 5', 40, 16000000, 'AMD Ryzen 5', '512GB', '8', 'GTX 2025', '15.6', 'NC2135');
+('SP001', 'Laptop Dell Inspiron 15', 50, 18000000, 'Intel Core i5', '256GB', '8', 'GTX 2050', '15.6', 'NC2134'),
+('SP002', 'Laptop HP Pavilion 14', 40, 15000000, 'Intel Core i5', '512GB', '8', 'GTX 2025', '14', 'NC2135'),
+('SP003', 'Laptop ASUS VivoBook S15', 60, 17000000, 'Intel Core i7', '512GB', '16', 'RTX 2025', '15.6', 'NC2136'),
+('SP004', 'Laptop Lenovo IdeaPad Flex 5', 35, 22000000, 'AMD Ryzen 7', '512GB', '16', 'RTX 3060', '15.6', 'NC2137'),
+('SP005', 'PC Acer Aspire XC', 25, 12000000, 'Intel Core i5', '256GB', '8', 'Iris XE', '14', 'NC2134'),
+('SP006', 'PC Dell OptiPlex 3080', 55, 28000000, 'Intel Core i7', '512GB', '32', 'RTX 3060', '15.6', 'NC2135'),
+('SP007', 'PC HP EliteDesk 800 G6', 30, 32000000, 'Intel Core i9', '512GB', '32', 'RTX 3060', '15.6', 'NC2136'),
+('SP008', 'PC Lenovo ThinkCentre M720', 20, 20000000, 'Intel Core i5', '256GB', '8', 'GTX 3050', '14', 'NC2137'),
+('SP009', 'Laptop MSI Modern 15', 45, 19000000, 'Intel Core i7', '512GB', '16', 'Iris XE', '15.6', 'NC2134'),
+('SP010', 'Laptop Acer Aspire 5', 40, 16000000, 'AMD Ryzen 5', '512GB', '8', 'GTX 2025', '15.6', 'NC2135'),
+('SP011', 'Laptop Dell Inspiron 15', 50, 18000000, 'Intel Core i5', '256GB', '8', 'GTX 2050', '15.6', 'NC2134'),
+('SP012', 'Laptop HP Pavilion 14', 40, 15000000, 'Intel Core i5', '512GB', '8', 'GTX 2025', '14', 'NC2135'),
+('SP013', 'Laptop ASUS VivoBook S15', 60, 17000000, 'Intel Core i7', '512GB', '16', 'RTX 2025', '15.6', 'NC2136'),
+('SP014', 'Laptop Lenovo IdeaPad Flex 5', 35, 22000000, 'AMD Ryzen 7', '512GB', '16', 'RTX 3060', '15.6', 'NC2137'),
+('SP015', 'PC Acer Aspire XC', 25, 12000000, 'Intel Core i5', '256GB', '8', 'Iris XE', '14', 'NC2134'),
+('SP016', 'PC Dell OptiPlex 3080', 55, 28000000, 'Intel Core i7', '512GB', '32', 'RTX 3060', '15.6', 'NC2135'),
+('SP017', 'PC HP EliteDesk 800 G6', 30, 32000000, 'Intel Core i9', '512GB', '32', 'RTX 3060', '15.6', 'NC2136'),
+('SP018', 'PC Lenovo ThinkCentre M720', 20, 20000000, 'Intel Core i5', '256GB', '8', 'GTX 3050', '14', 'NC2137'),
+('SP019', 'Laptop MSI Modern 15', 45, 19000000, 'Intel Core i7', '512GB', '16', 'Iris XE', '15.6', 'NC2134'),
+('SP020', 'Laptop Acer Aspire 5', 40, 16000000, 'AMD Ryzen 5', '512GB', '8', 'GTX 2025', '15.6', 'NC2135'),
+('SP021', 'Laptop Dell XPS 13', 60, 25000000, 'Intel Core i7', '1TB', '16', 'GTX 1650 Ti', '13.4', 'NC2134'),
+('SP022', 'Laptop HP Spectre x360', 50, 28000000, 'Intel Core i7', '512GB', '16', 'GTX 1650', '13.3', 'NC2135'),
+('SP023', 'Laptop ASUS ROG Zephyrus G14', 40, 30000000, 'AMD Ryzen 9', '1TB', '32', 'RTX 3080', '14', 'NC2136'),
+('SP024', 'Laptop Lenovo ThinkPad X1 Carbon', 55, 32000000, 'Intel Core i9', '2TB', '32', 'RTX 3070', '14', 'NC2137'),
+('SP025', 'Laptop MSI GS66 Stealth', 60, 30000000, 'Intel Core i9', '2TB', '64', 'RTX 3080', '15.6', 'NC2134'),
+('SP026', 'Laptop Acer Predator Helios 300', 55, 32000000, 'Intel Core i7', '1TB', '32', 'RTX 3070', '15.6', 'NC2135');
 
 create table phieuxuat (
     maxuat varchar(255), makh varchar(255), tongtien Double, PRIMARY key (maxuat), Foreign Key (makh) REFERENCES khachhang (makh)
