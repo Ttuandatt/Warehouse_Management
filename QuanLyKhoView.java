@@ -4,9 +4,7 @@
  */
 package View;
 
-//import Lop.NhaCungCap;
-import View.SanPhamView;
-//import Lop.TrangChu;
+
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -35,6 +33,7 @@ public class QuanLyKhoView extends JFrame {
     public QuanLyKhoView(){
         khoiTaoGiaoDien();
     }
+    
     public void khoiTaoGiaoDien(){
         JFrame f = new JFrame("Quan ly kho");
         f.setSize(1400, 850);
@@ -284,7 +283,7 @@ public class QuanLyKhoView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 SanPhamView sanPhamObj = new SanPhamView();
-                sanPhamObj.giaoDienSanPham();
+//                sanPhamObj.giaoDienSanPham();
                 noiDung.add(sanPhamObj, sanpham);
                 CardLayout cardLayout = (CardLayout) noiDung.getLayout();
                 cardLayout.show(noiDung, sanpham);
