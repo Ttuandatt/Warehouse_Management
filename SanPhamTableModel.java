@@ -19,12 +19,12 @@ public class SanPhamTableModel extends AbstractTableModel {
 
     @Override
     public int getRowCount() {
-        return data.size();
+        return data.size(); //Có bao nhiêu đôi tượng trong List data thì là bấy nhiêu row
     }
 
     @Override
     public int getColumnCount() {
-        return columnNames.length;
+        return columnNames.length;  
     }
 
     @Override
@@ -36,7 +36,7 @@ public class SanPhamTableModel extends AbstractTableModel {
             case 2: return sanPham.getSoLuong();
             case 3: return sanPham.getGia();
             case 4: return sanPham.getBoXuLy();
-            case 5: return sanPham.getBonho();
+            case 5: return sanPham.getBoNho();
             case 6: return sanPham.getRam();
             case 7: return sanPham.getNhaCungCap();
             default: return null;
@@ -46,5 +46,13 @@ public class SanPhamTableModel extends AbstractTableModel {
     @Override
     public String getColumnName(int column) {
         return columnNames[column];
+    }
+    
+    public void removeRow(int row) {
+        SanPham sanPhamToRemove = data.get(row); // Lấy dữ liệu của dòng cần xóa
+        SanPhamDAO sanPhamDAO = new SanPhamDAO(); // Khởi tạo đối tượng SanPhamDAO
+        sanPhamDAO.deleteSanPham(sanPhamToRemove); // Xóa dữ liệu từ cơ sở dữ liệu
+        data.remove(row); // Xóa dòng khỏi dữ liệu
+        fireTableRowsDeleted(row, row); // Thông báo cho bảng biết dòng đã được xóa
     }
 }
