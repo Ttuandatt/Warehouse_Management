@@ -185,11 +185,11 @@ insert into
     );
 
 create table phieuxuat (
-    maxuat varchar(255), makh varchar(255), tongtien double, PRIMARY key (maxuat), Foreign Key (makh) REFERENCES khachhang (makh)
+    maxuat varchar(255), makh varchar(255), tongtien Double, PRIMARY key (maxuat), Foreign Key (makh) REFERENCES khachhang (makh)
 );
 
 create table ctphieuxuat (
-    maxuat varchar(255), masp varchar(255), soluong int, Foreign Key (maxuat) REFERENCES phieuxuat (maxuat), foreign KEY (masp) REFERENCES sanpham (masp)
+    maxuat varchar(255), masp varchar(255), soluong Double, Foreign Key (maxuat) REFERENCES phieuxuat (maxuat), foreign KEY (masp) REFERENCES sanpham (masp)
 );
 
 create table phieunhap (
