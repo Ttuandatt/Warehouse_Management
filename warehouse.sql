@@ -189,7 +189,7 @@ create table phieuxuat (
 );
 
 create table ctphieuxuat (
-    maxuat varchar(255), masp varchar(255), soluong Double, Foreign Key (maxuat) REFERENCES phieuxuat (maxuat), foreign KEY (masp) REFERENCES sanpham (masp)
+    maxuat varchar(255), masp varchar(255), soluong int, Foreign Key (maxuat) REFERENCES phieuxuat (maxuat), foreign KEY (masp) REFERENCES sanpham (masp)
 );
 
 create table phieunhap (
