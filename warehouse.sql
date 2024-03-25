@@ -185,7 +185,7 @@ insert into
     );
 
 create table phieuxuat (
-    maxuat varchar(255), makh varchar(255), tongtien int, PRIMARY key (maxuat), Foreign Key (makh) REFERENCES khachhang (makh)
+    maxuat varchar(255), makh varchar(255), tongtien double, PRIMARY key (maxuat), Foreign Key (makh) REFERENCES khachhang (makh)
 );
 
 create table ctphieuxuat (
