@@ -11,10 +11,10 @@ CREATE TABLE khohang (
     trangthai int
 );
 drop table khohang;
-INSERT INTO khohang (makhohang, tenkhohang, diachikho, sdt) VALUES
-('KH001', 'Kho Hàng A', '123 Đường ABC, Quận XYZ, Thành phố HCM', '0123456789'),
-('KH002', 'Kho Hàng B', '456 Đường DEF, Quận UVW, Thành phố HCM', '0987654321'),
-('KH003', 'Kho Hàng C', '789 Đường GHI, Quận RST, Thành phố HCM', '0369852147');
+INSERT INTO khohang (makhohang, tenkhohang, diachikho, sdt, trangthai) VALUES
+('KH001', 'Kho Hàng A', '123 Đường ABC, Quận XYZ, Thành phố HCM', '0123456789',1),
+('KH002', 'Kho Hàng B', '456 Đường DEF, Quận UVW, Thành phố HCM', '0987654321',1),
+('KH003', 'Kho Hàng C', '789 Đường GHI, Quận RST, Thành phố HCM', '0369852147',1);
 
 ######################### SẢN PHẨM ####################### 
 CREATE TABLE sanpham (
@@ -23,8 +23,8 @@ CREATE TABLE sanpham (
     soluong int, 
     giaban int, 
     boxuly varchar(255), 
-    bonho varchar(255), 
     ram varchar(10), 
+    bonho varchar(255), 
     gpu varchar(255), 
     kichthuoc varchar(255), 
     nhacungcap varchar(255), 
@@ -136,12 +136,12 @@ CREATE TABLE nhacungcap (
     trangthai int
 );
 drop table nhacungcap;
-INSERT INTO nhacungcap (mancc, tenncc, diachi, sdt) VALUES
-('NC2134', 'Cty cong nghiep thuc pham Sao Mai', '41 Pasteur, phuong Ben Nghe, Quan 1, TP.HCM', '03258391234'),
-('NC2135', 'Công ty TNHH Đầu tư và Phát triển ABC', '25 Lê Lợi, phường Bến Thành, Quận 1, TP.HCM', '03258976521'),
-('NC2136', 'Công ty TNHH Sản xuất và Thương mại XYZ', '72 Nguyễn Huệ, phường Phạm Ngũ Lão, Quận 1, TP.HCM', '03259874123'),
-('NC2137', 'Công ty Cổ phần Công nghệ Viễn thông Đông Á', '14 Điện Biên Phủ, phường Đa Kao, Quận 1, TP.HCM', '03258741236'),
-('NC2138', 'Công ty TNHH Mỹ phẩm Hương Biển', '38 Hải Thượng Lãn Ông, phường Bến Thành, Quận 1, TP.HCM', '03259874512');
+INSERT INTO nhacungcap (mancc, tenncc, diachi, sdt, trangthai) VALUES
+('NC2134', 'Cty cong nghiep thuc pham Sao Mai', '41 Pasteur, phuong Ben Nghe, Quan 1, TP.HCM', '03258391234',1),
+('NC2135', 'Công ty TNHH Đầu tư và Phát triển ABC', '25 Lê Lợi, phường Bến Thành, Quận 1, TP.HCM', '03258976521',1),
+('NC2136', 'Công ty TNHH Sản xuất và Thương mại XYZ', '72 Nguyễn Huệ, phường Phạm Ngũ Lão, Quận 1, TP.HCM', '03259874123',1),
+('NC2137', 'Công ty Cổ phần Công nghệ Viễn thông Đông Á', '14 Điện Biên Phủ, phường Đa Kao, Quận 1, TP.HCM', '03258741236',1),
+('NC2138', 'Công ty TNHH Mỹ phẩm Hương Biển', '38 Hải Thượng Lãn Ông, phường Bến Thành, Quận 1, TP.HCM', '03259874512',1);
 
 ######################### PHIẾU NHẬP ####################### 
 ######################### CHI TIẾT PHIẾU NHẬP #######################
@@ -191,39 +191,33 @@ CREATE TABLE nhanvien (
     FOREIGN KEY (kho) REFERENCES khohang(makhohang)
 );
 drop table nhanvien;
-INSERT INTO nhanvien (manv, tennv, ngsinh, gioitinh, diachi, sdt, ngayvao, loai, kho) VALUES ('NV2345', 'Le Van Binh', '09/11/1988', 'Nam', '56 Tran Hung Dao, phuong Co Giang, quan 1, TP.HCM', '09123456789', '30/09/2015', 1, 'KH001'),
-('NV6789', 'Hoang Thi Thao', '25/07/1992', 'Nu', '90 Nguyen Trai, phuong Pham Ngu Lao, quan 1, TP.HCM', '09345678901', '18/10/2016', 1, 'KH003'),
-('NV8901', 'Tran Duc Quang', '17/03/1987', 'Nam', '45 Le Lai, phuong Ben Thanh, quan 1, TP.HCM', '09654321098', '22/07/2014', 0, 'KH001'),
-('NV1234', 'Nguyen Van Khanh', '02/04/1993', 'Nam', '23 Vo Thi Sau, phuong Da Kao, quan 1, TP.HCM', '09987654321', '10/02/2019', 1, 'KH002'),
-('NV5678', 'Pham Thi Thu', '11/08/1997', 'Nu', '67 Nguyen Dinh Chieu, phuong Da Kao, quan 1, TP.HCM', '09432109876', '29/05/2017', 1, 'KH001'),
-('NV4321', 'Le Hoang Long', '30/06/1996', 'Nam', '32 Ly Tu Trong, phuong Ben Thanh, quan 1, TP.HCM', '09567890123', '15/11/2018', 1, 'KH002'),
-('NV7891', 'Nguyen Van Cuong', '08/01/1991', 'Nam', '21 Nguyen Thi Minh Khai, phuong Ben Nghe, quan 1, TP.HCM', '09871234567', '07/04/2016', 1, 'KH003'),
-('NV3212', 'Nguyen Ha Vy', '21/12/1999', 'Nu', '34 Vo Van Tan, phuong 6, quan 3, TP.HCM', '01284313854', '21/1/2019', 1, 'KH002'),
-('NV4567', 'Tran Van An', '15/05/1995', 'Nam', '78 Le Loi, phuong Ben Thanh, quan 1, TP.HCM', '09876543210', '05/06/2018', 1, 'KH001'),
-('NV7890', 'Pham Thi Minh', '03/09/1990', 'Nu', '123 Nguyen Hue, phuong Nguyen Thai Binh, quan 1, TP.HCM', '09781234567', '12/03/2017', 1, 'KH002');
+INSERT INTO nhanvien (manv, tennv, ngsinh, gioitinh, diachi, sdt, ngayvao, loai, kho, trangthai) VALUES 
+('NV2345', 'Le Van Binh', '09/11/1988', 'Nam', '56 Tran Hung Dao, phuong Co Giang, quan 1, TP.HCM', '09123456789', '30/09/2015', 1, 'KH001',1),
+('NV6789', 'Hoang Thi Thao', '25/07/1992', 'Nu', '90 Nguyen Trai, phuong Pham Ngu Lao, quan 1, TP.HCM', '09345678901', '18/10/2016', 1, 'KH003',1),
+('NV8901', 'Tran Duc Quang', '17/03/1987', 'Nam', '45 Le Lai, phuong Ben Thanh, quan 1, TP.HCM', '09654321098', '22/07/2014', 0, 'KH001',1),
+('NV1234', 'Nguyen Van Khanh', '02/04/1993', 'Nam', '23 Vo Thi Sau, phuong Da Kao, quan 1, TP.HCM', '09987654321', '10/02/2019', 1, 'KH002',1),
+('NV5678', 'Pham Thi Thu', '11/08/1997', 'Nu', '67 Nguyen Dinh Chieu, phuong Da Kao, quan 1, TP.HCM', '09432109876', '29/05/2017', 1, 'KH001',1),
+('NV4321', 'Le Hoang Long', '30/06/1996', 'Nam', '32 Ly Tu Trong, phuong Ben Thanh, quan 1, TP.HCM', '09567890123', '15/11/2018', 1, 'KH002',1),
+('NV7891', 'Nguyen Van Cuong', '08/01/1991', 'Nam', '21 Nguyen Thi Minh Khai, phuong Ben Nghe, quan 1, TP.HCM', '09871234567', '07/04/2016', 1, 'KH003',1),
+('NV3212', 'Nguyen Ha Vy', '21/12/1999', 'Nu', '34 Vo Van Tan, phuong 6, quan 3, TP.HCM', '01284313854', '21/1/2019', 1, 'KH002',1),
+('NV4567', 'Tran Van An', '15/05/1995', 'Nam', '78 Le Loi, phuong Ben Thanh, quan 1, TP.HCM', '09876543210', '05/06/2018', 1, 'KH001',1),
+('NV7890', 'Pham Thi Minh', '03/09/1990', 'Nu', '123 Nguyen Hue, phuong Nguyen Thai Binh, quan 1, TP.HCM', '09781234567', '12/03/2017', 1, 'KH002',1);
 
 ######################### TÀI KHOẢN #######################
 CREATE TABLE taikhoan (
     taikhoan varchar(30), 
     matkhau varchar(30), 
-    loai int, manv varchar(255), 
+    loai int, 
+    manv varchar(255), 
     trangthai int,
     Foreign Key (manv) REFERENCES nhanvien (manv)
 );
 drop table taikhoan;
-insert into
-    taikhoan (taikhoan, matkhau, loai, manv) values (
-        'nv1111', '12345', 1, "NV5678"
-    ),
-    (
-        'nv2222', '12345', 1, 'NV1234'
-    ),
-    (
-        'nv3333', '12345', 1, 'NV2345'
-    ),
-    (
-        'admin', '1', 0, 'NV8901'
-    );
+insert into taikhoan (taikhoan, matkhau, loai, manv, trangthai) values 
+    ('nv1111', '12345', 1, "NV5678", 1),
+    ('nv2222', '12345', 1, 'NV1234', 1),
+    ('nv3333', '12345', 1, 'NV2345', 1),
+    ('admin', '1', 0, 'NV8901', 1);
 
 
 
@@ -323,6 +317,7 @@ SELECT * FROM phieuxuat;
 SELECT * FROM taikhoan;
 SELECT * FROM khachhang;
 SELECT * FROM khohang;
+SELECT * FROM ctphieuxuat;
 SELECT n.tennv
 FROM nhanvien n
 JOIN taikhoan t ON n.manv = t.manv
