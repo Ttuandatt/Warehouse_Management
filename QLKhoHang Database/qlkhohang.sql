@@ -144,36 +144,60 @@ INSERT INTO nhacungcap (mancc, tenncc, diachi, sdt, trangthai) VALUES
 ('NC2138', 'Công ty TNHH Mỹ phẩm Hương Biển', '38 Hải Thượng Lãn Ông, phường Bến Thành, Quận 1, TP.HCM', '03259874512',1);
 
 ######################### PHIẾU NHẬP ####################### 
+create table phieunhap (
+	mapn varchar(255) primary key,
+	manguoitao VARCHAR(255),
+    makho varchar(255),
+    mancc varchar(255),
+	thoigiantao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	tongtien INT,
+	trangthai INT,
+	#foreign key (mapx) REFERENCES ctphieuxuat(mapx),
+	foreign key (manguoitao) REFERENCES nhanvien(manv)
+);
+drop table phieunhap;
 ######################### CHI TIẾT PHIẾU NHẬP #######################
-
-######################### PHIẾU XUẤT ####################### 
+create table ctphieunhap (
+	mapx varchar(255),
+	maSP varchar(255),
+	tenSP varchar(255),
+	soLuong INT,
+	gia INT,
+	trangthai INT,
+	foreign key (masp) REFERENCES sanpham(masp)
+);
+drop table ctphieunhap;
+######################### PHIẾU XUẤT #######################  
 CREATE TABLE phieuxuat (
-  mapx INT AUTO_INCREMENT PRIMARY KEY,
+  mapx varchar(255) primary key,
   manguoitao VARCHAR(255),
-  thoiGianTao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  makho varchar(255),
+  makhachhang varchar(255),
+  thoigiantao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   tongtien INT,
   trangthai INT,
   #foreign key (mapx) REFERENCES ctphieuxuat(mapx),
   foreign key (manguoitao) REFERENCES nhanvien(manv)
 ); 
-drop table phieuxuat;
 INSERT INTO phieuxuat (manguoitao, tongtien, trangthai) VALUES
-('NV1234', 1500, 1),
+('NV1234', 228000000, 1),
 ('NV2345', 2000, 1),
 ('NV5678', 1800, 1);
+drop table phieuxuat;
 ######################### CHI TIẾT PHIẾU XUẤT #######################
 CREATE TABLE ctphieuxuat (
-  mapx int PRIMARY KEY,
-  maNguoiTao VARCHAR(255),
-  thoiGianTao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  maSP varchar(255),
-  tenSP varchar(255),
-  soLuong INT,
+  mapx varchar(255),
+  masp varchar(255),
+  tensp varchar(255),
+  soluong INT,
   gia INT,
   trangthai INT,
-  foreign key (maNguoiTao) REFERENCES taikhoan(manv),
-  foreign key (masp) REFERENCES sanpham(masp) 
-); 
+  foreign key (masp) REFERENCES sanpham(masp)
+);
+INSERT INTO ctphieuxuat (mapx, maNguoiTao, thoiGianTao, maSP, tenSP, soLuong, gia, trangthai) VALUES
+(1, 'NV1234', CURRENT_TIMESTAMP, 'SP010', 'Acer Aspire 5', 5, 16000000, 1),
+(1, 'NV1234', CURRENT_TIMESTAMP, 'SP022', 'HP Spectre x360', 3, 28000000, 1),
+(1, 'NV1234', CURRENT_TIMESTAMP, 'SP045', 'MSI WS66', 2, 32000000, 1);
 drop table ctphieuxuat;
 ######################### NHÂN VIÊN #######################
 CREATE TABLE nhanvien (
@@ -204,65 +228,48 @@ INSERT INTO nhanvien (manv, tennv, ngsinh, gioitinh, diachi, sdt, ngayvao, loai,
 
 ######################### TÀI KHOẢN #######################
 CREATE TABLE taikhoan (
-    taikhoan varchar(30), 
+	manv varchar(255) primary key, 
     matkhau varchar(30), 
     loai int, 
-    manv varchar(255), 
     trangthai int,
     Foreign Key (manv) REFERENCES nhanvien (manv)
 );
 drop table taikhoan;
-insert into taikhoan (taikhoan, matkhau, loai, manv, trangthai) values 
-    ('nv1111', '12345', 1, "NV5678", 1),
-    ('nv2222', '12345', 1, 'NV1234', 1),
-    ('nv3333', '12345', 1, 'NV2345', 1),
-    ('admin', '1', 0, 'NV8901', 1);
-
-
-
-
-create table phieunhap (
-    mapn varchar(255), mannguoitao varchar(255), thoiGianTao TIMESTAMP DEFAULT CURRENT_TIMESTAMP, tongtien int
+insert into taikhoan (manv, matkhau, loai, trangthai) values 
+    ("NV5678", '12345', 1, 1),
+    ('NV1234', '12345', 1, 1),
+    ('NV2345', '12345', 1, 1),
+    ('NV8901', '1', 0, 1);
+    
+######################### KHÁCH HÀNG #######################
+CREATE TABLE khachhang (
+	makh varchar(255) primary key, 
+    tenkh varchar(255),
+    diachi varchar(255), 
+    sdt varchar(255), 
+    trangthai int
 );
-create table ctphieunhap(
-	mapn varchar(255), mannguoitao varchar(255), nhacungcap varchar(255), thoiGianTao TIMESTAMP DEFAULT CURRENT_TIMESTAMP, masp varchar(255), foreign key (masp) REFERENCES sanpham(masp), tensp varchar(255), giaban int, soluong int, tongtien int
-);
-
-create table ctphieuxuat(
-	mapx  INT AUTO_INCREMENT PRIMARY KEY, mannguoitao varchar(255), thoiGianTao TIMESTAMP DEFAULT CURRENT_TIMESTAMP, masp varchar(255), foreign key (masp) REFERENCES sanpham(masp), tensp varchar(255), giaban int, soluong int, tongtien int
-);
-drop table ctphieuxuat;
-
-
-
-
-
-
-	
-
-
-
-INSERT INTO khachhang (makh, tenkh, diachi, sdt) VALUES
-    ('KH001', 'Nguyen Van A', '322/15 An Duong Vuong, Quan 5, TP.HCM', '02385123912'),
-    ('KH002', 'Hoang Duoc Su', '213 Tran Binh Trong, Quan 5, TP.HCM', '034812349212'),
-    ('KH003', 'Nguyen Thi Anh', '45 Le Loi, Quan 1, TP.HCM', '032178945632'),
-    ('KH004', 'Tran Van Minh', '76 Nguyen Hue, Quan 3, TP.HCM', '036985214789'),
-    ('KH005', 'Le Thi Mai', '102 Nguyen Trai, Quan 10, TP.HCM', '038752136984'),
-    ('KH006', 'Pham Van Tuan', '31 Tran Hung Dao, Quan 1, TP.HCM', '035214789632'),
-    ('KH007', 'Nguyen Van Hieu', '17 Hoang Sa, Quan 1, TP.HCM', '039854621378'),
-    ('KH008', 'Tran Thi Lan', '92 Vo Van Tan, Quan 3, TP.HCM', '031478965214'),
-    ('KH009', 'Le Duc Tho', '55 Ly Thai To, Quan 10, TP.HCM', '032145789632'),
-    ('KH010', 'Phan Thi Huong', '29 Nguyen Van Cu, Quan 5, TP.HCM', '036985214785'),
-    ('KH011', 'Tran Van Dat', '8 Nguyen Dinh Chieu, Quan 3, TP.HCM', '034512365987'),
-    ('KH012', 'Nguyen Van B', '322/15 An Duong Vuong, Quan 5, TP.HCM', '02385123912'),
-    ('KH013', 'Hoang Van Su', '213 Tran Binh Trong, Quan 5, TP.HCM', '034812349212'),
-    ('KH014', 'Nguyen Van Anh', '45 Le Loi, Quan 1, TP.HCM', '032178945632'),
-    ('KH015', 'Tran Van Hoang', '76 Nguyen Hue, Quan 3, TP.HCM', '036985214789'),
-    ('KH016', 'Le Van Mai', '102 Nguyen Trai, Quan 10, TP.HCM', '038752136984'),
-    ('KH017', 'Pham Thi Tuan', '31 Tran Hung Dao, Quan 1, TP.HCM', '035214789632'),
-    ('KH018', 'Nguyen Van Hien', '17 Hoang Sa, Quan 1, TP.HCM', '039854621378'),
-    ('KH019', 'Tran Thi Nhung', '92 Vo Van Tan, Quan 3, TP.HCM', '031478965214'),
-    ('KH020', 'Le Duc Thang', '55 Ly Thai To, Quan 10, TP.HCM', '032145789632');
+INSERT INTO khachhang (makh, tenkh, diachi, sdt, trangthai) VALUES
+    ('KH001', 'Nguyen Van A', '322/15 An Duong Vuong, Quan 5, TP.HCM', '02385123912',1),
+    ('KH002', 'Hoang Duoc Su', '213 Tran Binh Trong, Quan 5, TP.HCM', '034812349212',1),
+    ('KH003', 'Nguyen Thi Anh', '45 Le Loi, Quan 1, TP.HCM', '032178945632',1),
+    ('KH004', 'Tran Van Minh', '76 Nguyen Hue, Quan 3, TP.HCM', '036985214789',1),
+    ('KH005', 'Le Thi Mai', '102 Nguyen Trai, Quan 10, TP.HCM', '038752136984',1),
+    ('KH006', 'Pham Van Tuan', '31 Tran Hung Dao, Quan 1, TP.HCM', '035214789632',1),
+    ('KH007', 'Nguyen Van Hieu', '17 Hoang Sa, Quan 1, TP.HCM', '039854621378',1),
+    ('KH008', 'Tran Thi Lan', '92 Vo Van Tan, Quan 3, TP.HCM', '031478965214',1),
+    ('KH009', 'Le Duc Tho', '55 Ly Thai To, Quan 10, TP.HCM', '032145789632',1),
+    ('KH010', 'Phan Thi Huong', '29 Nguyen Van Cu, Quan 5, TP.HCM', '036985214785',1),
+    ('KH011', 'Tran Van Dat', '8 Nguyen Dinh Chieu, Quan 3, TP.HCM', '034512365987',1),
+    ('KH012', 'Nguyen Van B', '322/15 An Duong Vuong, Quan 5, TP.HCM', '02385123912',1),
+    ('KH013', 'Hoang Van Su', '213 Tran Binh Trong, Quan 5, TP.HCM', '034812349212',1),
+    ('KH014', 'Nguyen Van Anh', '45 Le Loi, Quan 1, TP.HCM', '032178945632',1),
+    ('KH015', 'Tran Van Hoang', '76 Nguyen Hue, Quan 3, TP.HCM', '036985214789',1),
+    ('KH016', 'Le Van Mai', '102 Nguyen Trai, Quan 10, TP.HCM', '038752136984',1),
+    ('KH017', 'Pham Thi Tuan', '31 Tran Hung Dao, Quan 1, TP.HCM', '035214789632',1),
+    ('KH018', 'Nguyen Van Hien', '17 Hoang Sa, Quan 1, TP.HCM', '039854621378',1),
+    ('KH019', 'Tran Thi Nhung', '92 Vo Van Tan, Quan 3, TP.HCM', '031478965214',1),
+    ('KH020', 'Le Duc Thang', '55 Ly Thai To, Quan 10, TP.HCM', '032145789632',1);
 
 
 /* 
@@ -313,6 +320,9 @@ SELECT * FROM nhanvien;
 SELECT * FROM nhacungcap;
 SELECT * FROM sanpham;
 SELECT * FROM phieuxuat;
+SELECT * FROM phieunhap;
+SELECT * FROM ctphieunhap;
+SELECT * FROM ctphieuxuat;
 SELECT * FROM taikhoan;
 SELECT * FROM khachhang;
 SELECT * FROM khohang;
@@ -324,3 +334,6 @@ WHERE t.manv = 'NV8901';
 SELECT * FROM quanlykhohang.sanpham;
 DELETE FROM sanpham WHERE masp = 'x1';
 UPDATE phieuxuat SET trangthai = 1 WHERE mapx = '3';
+DELETE FROM phieuxuat WHERE manguoitao LIKE 'NV%';
+DELETE FROM ctphieuxuat WHERE manguoitao LIKE 'NV%';
+
