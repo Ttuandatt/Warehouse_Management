@@ -149,7 +149,7 @@ create table phieunhap (
 	manguoitao VARCHAR(255),
     makho varchar(255),
     mancc varchar(255),
-	thoigiantao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	thoigiantao date,
 	tongtien INT,
 	trangthai INT,
 	#foreign key (mapx) REFERENCES ctphieuxuat(mapx),
@@ -158,10 +158,10 @@ create table phieunhap (
 drop table phieunhap;
 ######################### CHI TIẾT PHIẾU NHẬP #######################
 create table ctphieunhap (
-	mapx varchar(255),
-	maSP varchar(255),
-	tenSP varchar(255),
-	soLuong INT,
+	mapn varchar(255),
+	masp varchar(255),
+	tens varchar(255),
+	soluong INT,
 	gia INT,
 	trangthai INT,
 	foreign key (masp) REFERENCES sanpham(masp)
@@ -173,7 +173,7 @@ CREATE TABLE phieuxuat (
   manguoitao VARCHAR(255),
   makho varchar(255),
   makhachhang varchar(255),
-  thoigiantao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  thoigiantao date,
   tongtien INT,
   trangthai INT,
   #foreign key (mapx) REFERENCES ctphieuxuat(mapx),
@@ -249,27 +249,28 @@ CREATE TABLE khachhang (
     sdt varchar(255), 
     trangthai int
 );
+drop table khachhang;
 INSERT INTO khachhang (makh, tenkh, diachi, sdt, trangthai) VALUES
-    ('KH001', 'Nguyen Van A', '322/15 An Duong Vuong, Quan 5, TP.HCM', '02385123912',1),
-    ('KH002', 'Hoang Duoc Su', '213 Tran Binh Trong, Quan 5, TP.HCM', '034812349212',1),
-    ('KH003', 'Nguyen Thi Anh', '45 Le Loi, Quan 1, TP.HCM', '032178945632',1),
-    ('KH004', 'Tran Van Minh', '76 Nguyen Hue, Quan 3, TP.HCM', '036985214789',1),
-    ('KH005', 'Le Thi Mai', '102 Nguyen Trai, Quan 10, TP.HCM', '038752136984',1),
-    ('KH006', 'Pham Van Tuan', '31 Tran Hung Dao, Quan 1, TP.HCM', '035214789632',1),
-    ('KH007', 'Nguyen Van Hieu', '17 Hoang Sa, Quan 1, TP.HCM', '039854621378',1),
-    ('KH008', 'Tran Thi Lan', '92 Vo Van Tan, Quan 3, TP.HCM', '031478965214',1),
-    ('KH009', 'Le Duc Tho', '55 Ly Thai To, Quan 10, TP.HCM', '032145789632',1),
-    ('KH010', 'Phan Thi Huong', '29 Nguyen Van Cu, Quan 5, TP.HCM', '036985214785',1),
-    ('KH011', 'Tran Van Dat', '8 Nguyen Dinh Chieu, Quan 3, TP.HCM', '034512365987',1),
-    ('KH012', 'Nguyen Van B', '322/15 An Duong Vuong, Quan 5, TP.HCM', '02385123912',1),
-    ('KH013', 'Hoang Van Su', '213 Tran Binh Trong, Quan 5, TP.HCM', '034812349212',1),
-    ('KH014', 'Nguyen Van Anh', '45 Le Loi, Quan 1, TP.HCM', '032178945632',1),
-    ('KH015', 'Tran Van Hoang', '76 Nguyen Hue, Quan 3, TP.HCM', '036985214789',1),
-    ('KH016', 'Le Van Mai', '102 Nguyen Trai, Quan 10, TP.HCM', '038752136984',1),
-    ('KH017', 'Pham Thi Tuan', '31 Tran Hung Dao, Quan 1, TP.HCM', '035214789632',1),
-    ('KH018', 'Nguyen Van Hien', '17 Hoang Sa, Quan 1, TP.HCM', '039854621378',1),
-    ('KH019', 'Tran Thi Nhung', '92 Vo Van Tan, Quan 3, TP.HCM', '031478965214',1),
-    ('KH020', 'Le Duc Thang', '55 Ly Thai To, Quan 10, TP.HCM', '032145789632',1);
+    ('C001', 'Nguyen Van A', '322/15 An Duong Vuong, Quan 5, TP.HCM', '02385123912',1),
+    ('C002', 'Hoang Duoc Su', '213 Tran Binh Trong, Quan 5, TP.HCM', '034812349212',1),
+    ('C003', 'Nguyen Thi Anh', '45 Le Loi, Quan 1, TP.HCM', '032178945632',1),
+    ('C004', 'Tran Van Minh', '76 Nguyen Hue, Quan 3, TP.HCM', '036985214789',1),
+    ('C005', 'Le Thi Mai', '102 Nguyen Trai, Quan 10, TP.HCM', '038752136984',1),
+    ('C006', 'Pham Van Tuan', '31 Tran Hung Dao, Quan 1, TP.HCM', '035214789632',1),
+    ('C007', 'Nguyen Van Hieu', '17 Hoang Sa, Quan 1, TP.HCM', '039854621378',1),
+    ('C008', 'Tran Thi Lan', '92 Vo Van Tan, Quan 3, TP.HCM', '031478965214',1),
+    ('C009', 'Le Duc Tho', '55 Ly Thai To, Quan 10, TP.HCM', '032145789632',1),
+    ('C010', 'Phan Thi Huong', '29 Nguyen Van Cu, Quan 5, TP.HCM', '036985214785',1),
+    ('C011', 'Tran Van Dat', '8 Nguyen Dinh Chieu, Quan 3, TP.HCM', '034512365987',1),
+    ('C012', 'Nguyen Van B', '322/15 An Duong Vuong, Quan 5, TP.HCM', '02385123912',1),
+    ('C013', 'Hoang Van Su', '213 Tran Binh Trong, Quan 5, TP.HCM', '034812349212',1),
+    ('C014', 'Nguyen Van Anh', '45 Le Loi, Quan 1, TP.HCM', '032178945632',1),
+    ('C015', 'Tran Van Hoang', '76 Nguyen Hue, Quan 3, TP.HCM', '036985214789',1),
+    ('C016', 'Le Van Mai', '102 Nguyen Trai, Quan 10, TP.HCM', '038752136984',1),
+    ('C017', 'Pham Thi Tuan', '31 Tran Hung Dao, Quan 1, TP.HCM', '035214789632',1),
+    ('C018', 'Nguyen Van Hien', '17 Hoang Sa, Quan 1, TP.HCM', '039854621378',1),
+    ('C019', 'Tran Thi Nhung', '92 Vo Van Tan, Quan 3, TP.HCM', '031478965214',1),
+    ('C020', 'Le Duc Thang', '55 Ly Thai To, Quan 10, TP.HCM', '032145789632',1);
 
 
 /* 
@@ -319,9 +320,9 @@ INSERT INTO khachhang (makh, tenkh, diachi, sdt) VALUES
 SELECT * FROM nhanvien;
 SELECT * FROM nhacungcap;
 SELECT * FROM sanpham;
-SELECT * FROM phieuxuat;
 SELECT * FROM phieunhap;
 SELECT * FROM ctphieunhap;
+SELECT * FROM phieuxuat;
 SELECT * FROM ctphieuxuat;
 SELECT * FROM taikhoan;
 SELECT * FROM khachhang;
@@ -336,4 +337,3 @@ DELETE FROM sanpham WHERE masp = 'x1';
 UPDATE phieuxuat SET trangthai = 1 WHERE mapx = '3';
 DELETE FROM phieuxuat WHERE manguoitao LIKE 'NV%';
 DELETE FROM ctphieuxuat WHERE manguoitao LIKE 'NV%';
-
