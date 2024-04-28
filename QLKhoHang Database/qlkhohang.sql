@@ -160,7 +160,7 @@ drop table phieunhap;
 create table ctphieunhap (
 	mapn varchar(255),
 	masp varchar(255),
-	tens varchar(255),
+	tensp varchar(255),
 	soluong INT,
 	gia INT,
 	trangthai INT,
