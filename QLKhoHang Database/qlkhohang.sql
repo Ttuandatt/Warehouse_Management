@@ -125,7 +125,25 @@ INSERT INTO sanpham (masp, tensp, soluong, giaban, boxuly, bonho, ram, gpu, kich
 ('SP089', 'MSI Modern 14', 45, 21000000, 'Intel Core i7-1355U', '512GB', '16GB', 'Iris XE', '14" 2.8K OLED', 'NC2134', 'KH001',1),
 ('SP090', 'Acer Aspire 5', 40, 16000000, 'AMD Ryzen 5-5500H', '512GB', '8GB', 'GTX 2025', '15.6" FHD 60Hz', 'NC2135', 'KH002',1);
 
-
+######################### SẢN PHẨM DỰ TRỮ####################### 
+CREATE TABLE sanphamdutru (
+    masp varchar(255) PRIMARY KEY, 
+    tensp varchar(255), 
+    soluong int, 
+    giaban int, 
+    boxuly varchar(255), 
+    ram varchar(10), 
+    bonho varchar(255), 
+    gpu varchar(255), 
+    kichthuoc varchar(255), 
+    nhacungcap varchar(255), 
+    makho varchar(255),
+    trangthai int,
+    FOREIGN KEY (makho) REFERENCES khohang(makhohang)
+);
+drop table sanpham;
+INSERT INTO sanphamdutru (masp, tensp, soluong, giaban, boxuly, bonho, ram, gpu, kichthuoc, nhacungcap, makho, trangthai) VALUES 
+('SP001', 'Dell Inspiron 15', 50, 18000000, 'Intel Core i5-11400H', '256GB', '8GB', 'GTX 2050', '15.6" FHD 144Hz', 'NC2134', 'KH001',2);
 
 ######################### NHÀ CUNG CẤP ####################### 
 CREATE TABLE nhacungcap (
