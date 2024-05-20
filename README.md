@@ -1,4 +1,4 @@
-![image](https://github.com/Ttuandatt/Warehouse_Management/assets/139537793/11ae8fcb-08d8-49ea-89ca-f334a3a50c1b)****Project Warehouse Management****
+****Project Warehouse Management****
 1. **Management object**
    - Warehouses
    - Goods
