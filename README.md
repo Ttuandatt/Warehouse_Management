@@ -1,4 +1,4 @@
-Project Warehouse Management
+****Project Warehouse Management****
 1. **Management object**
    - Warehouses
    - Goods
@@ -7,6 +7,6 @@ Project Warehouse Management
    - Accounts
    - Import & Export
    - Statistics
-3. User Interface
+**2. Get Started**
 4. Funtcions
 5. Limits & future updates
