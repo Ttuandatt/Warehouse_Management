@@ -1,4 +1,4 @@
-****Project Warehouse Management****
+******Project Warehouse Management******
 1. **Management object**
    - Warehouses
    - Goods
