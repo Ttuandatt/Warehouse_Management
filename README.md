@@ -19,11 +19,11 @@
    - Login
    ![image](https://github.com/Ttuandatt/Warehouse_Management/assets/139537793/50d76a69-db68-4f32-8bee-2ccac4f5ce90)
    - Goods
-   ![image](https://github.com/Ttuandatt/Warehouse_Management/assets/139537793/ab9a5800-c1d7-4785-ab63-2db7933b3b37)
+   ![image](https://github.com/Ttuandatt/Warehouse_Management/assets/139537793/d73adb6b-f66d-4a61-ad5a-efbadd649986)
    - Suppliers
-   ![image](https://github.com/Ttuandatt/Warehouse_Management/assets/139537793/3b2bb227-a77c-4c35-8a7e-e2c156c8e31a)
+   ![image](https://github.com/Ttuandatt/Warehouse_Management/assets/139537793/3f3e0ace-307d-48f7-8643-98a4067ddba7)
    - Import
-   ![image](https://github.com/Ttuandatt/Warehouse_Management/assets/139537793/88cf6b1d-3033-4699-93af-4d4ff81b34d3)
+   ![image](https://github.com/Ttuandatt/Warehouse_Management/assets/139537793/c134e89d-bde8-416f-86cf-d2fca7b210ba)
    - Receipt note
    - Export
    - Delivery note
