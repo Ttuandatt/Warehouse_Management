@@ -25,7 +25,9 @@
    - Import
    ![image](https://github.com/Ttuandatt/Warehouse_Management/assets/139537793/c134e89d-bde8-416f-86cf-d2fca7b210ba)
    - Receipt note
+   ![image](https://github.com/Ttuandatt/Warehouse_Management/assets/139537793/2939ede6-d49d-454f-b1f6-a0ec38a758c5)
    - Export
+   ![image](https://github.com/Ttuandatt/Warehouse_Management/assets/139537793/e1b4293d-7460-4bbe-a9e8-12c10e2d809c)
    - Delivery note
    - Warehouse
    - Statistics
