@@ -29,8 +29,13 @@
    - Export
    ![image](https://github.com/Ttuandatt/Warehouse_Management/assets/139537793/e1b4293d-7460-4bbe-a9e8-12c10e2d809c)
    - Delivery note
+   ![image](https://github.com/Ttuandatt/Warehouse_Management/assets/139537793/7643811c-91d5-442f-a53f-b6750d46772e)
    - Warehouse
+   ![image](https://github.com/Ttuandatt/Warehouse_Management/assets/139537793/98323bb3-8d50-4666-94dd-a21649c9941e)
    - Statistics
+   ![image](https://github.com/Ttuandatt/Warehouse_Management/assets/139537793/011e8c43-46c9-4523-abe9-9b93ae0b9217)
    - Employees
+   ![image](https://github.com/Ttuandatt/Warehouse_Management/assets/139537793/4a803e4f-c2df-4d21-a272-2174d16af97c)
    - Account
+   ![image](https://github.com/Ttuandatt/Warehouse_Management/assets/139537793/a72e77c4-02fc-4e4c-9c53-512d9ecfea73)
 6. Limits & future updates
