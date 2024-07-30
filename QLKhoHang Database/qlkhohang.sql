@@ -165,8 +165,8 @@ INSERT INTO nhacungcap (mancc, tenncc, diachi, sdt, trangthai) VALUES
 create table phieunhap (
 	mapn varchar(255) primary key,
 	manguoitao VARCHAR(255),
-    makho varchar(255),
-    mancc varchar(255),
+    	makho varchar(255),
+    	mancc varchar(255),
 	thoigiantao date,
 	tongtien INT,
 	trangthai INT,
