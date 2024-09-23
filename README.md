@@ -39,3 +39,5 @@
    - Account
    ![image](https://github.com/Ttuandatt/Warehouse_Management/assets/139537793/a72e77c4-02fc-4e4c-9c53-512d9ecfea73)
 6. Limits & future updates
+- Statistics still need more in-depth functions
+- Enhance the UI, query for faster respond
